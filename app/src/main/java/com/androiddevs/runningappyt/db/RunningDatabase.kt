@@ -16,5 +16,4 @@ abstract class RunningDatabase : RoomDatabase() {
 
     abstract fun getRunDao(): RunDAO
 
-
 }
