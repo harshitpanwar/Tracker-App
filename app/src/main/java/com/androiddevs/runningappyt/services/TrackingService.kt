@@ -1,4 +1,5 @@
 package com.androiddevs.runningappyt.services
+
 import android.annotation.SuppressLint
 import android.app.NotificationChannel
 import android.app.NotificationManager
@@ -172,12 +173,12 @@ class TrackingService : LifecycleService() {
             isAccessible = true
             set(curNotificationBuilder, ArrayList<NotificationCompat.Action>())
         }
-        if(!serviceKilled){
-
-        curNotificationBuilder = baseNotificationBuilder
-            .addAction(R.drawable.ic_pause_black_24dp, notificationActionText, pendingIntent)
-        notificationManager.notify(NOTIFICATION_ID, curNotificationBuilder.build())
-    }}
+        if(!serviceKilled) {
+            curNotificationBuilder = baseNotificationBuilder
+                .addAction(R.drawable.ic_pause_black_24dp, notificationActionText, pendingIntent)
+            notificationManager.notify(NOTIFICATION_ID, curNotificationBuilder.build())
+        }
+    }
 
     @SuppressLint("MissingPermission")
     private fun updateLocationTracking(isTracking: Boolean) {
@@ -243,7 +244,6 @@ class TrackingService : LifecycleService() {
 
         timeRunInSeconds.observe(this, Observer {
             if(!serviceKilled) {
-
                 val notification = curNotificationBuilder
                     .setContentText(TrackingUtility.getFormattedStopWatchTime(it * 1000L))
                 notificationManager.notify(NOTIFICATION_ID, notification.build())
@@ -261,6 +261,7 @@ class TrackingService : LifecycleService() {
         notificationManager.createNotificationChannel(channel)
     }
 }
+
 
 
 
