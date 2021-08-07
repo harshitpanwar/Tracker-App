@@ -268,6 +268,3 @@ class TrackingFragment : Fragment(R.layout.fragment_tracking) {
 }
 
 
-
-
-
